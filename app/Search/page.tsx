@@ -2,13 +2,13 @@
 
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import axios from 'axios';
 import SkeletonCard from './../components/ui/SkeletonCard';
 import SearchResultCard from '../components/ui/SearchResultCard';
 
-export default function SearchResults() {
+function SearchContent() {
   const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
   const searchParams = useSearchParams();
   const query = searchParams.get('q') || '';
@@ -125,5 +125,13 @@ export default function SearchResults() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function SearchResults() {
+  return (
+    <Suspense fallback={<div className="text-white text-center mt-20">Loading...</div>}>
+      <SearchContent />
+    </Suspense>
   );
 }
