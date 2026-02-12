@@ -70,4 +70,4 @@ This project is optimized for deployment on [Vercel](https://vercel.com/).
 ## 👨‍💻 Author
 
 Developed by **Mer Movies Team**.
-Credits : Alan Alkalifa
+Credits: Alan Alkalifa
